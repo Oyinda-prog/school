@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="email">
+    <input type="text" id="password">
+    <button onclick="signIn()">Sign in here</button>
+    <div id="disp"></div>
+    <script>
+         var allCandidate=JSON.parse(localStorage.getItem("candidateStorage")) 
+        //  console.log(allCandidate)
+           const signIn=()=>{
+            //    let allCandidates=allCandidate.find((candidate,i)=>email.value==candidate.Email &&password.value==candidate.Password
+            //    );
+            //    if(allCandidates!=undefined){
+            //      // alert("welcome")
+            //     //  let position=allCandidate.indexof(allCandidates) 
+            //     localStorage.setItem("userIndex",position)
+            //     window.location.href="dashboard.html"
+            //     disp.innerHTML=`Login successful`
+            // }
+            // else{
+            //     window.location.href="index.html"
+            // }
+            let allCandidate1=allCandidate.find(candidate=>email.value==candidate.Email &&password.value==candidate.Password
+               );
+               let position=allCandidate.indexOf(allCandidate1) 
+               if(allCandidate1!=undefined){
+  
+                   localStorage.setItem("userIndex",position)
+                   window.location.href="dashboard.html"
+                   console.log(allCandidate1);
+                   console.log(position);
+               }
+               else{
+                window.location.href="index.html"
+               }
+
+            }
+
+    </script>
+</body>
+</html>

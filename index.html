@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text"  placeholder="First Name" id="firstName">
+    <input type="text"  placeholder="Last Name" id="lastName">
+    <input type="text" placeholder="Email" id="email">
+    <input type="text" placeholder="Password" id="password">
+    <div id="display" style="color: red;"></div>
+    <button onclick="submitHere()">submit</button>
+    <script>
+     var matric=Math.round("233" +"BCH"+ Math.random()*10000)
+     console.log(matric);
+        var allCandidate=[]
+         if(localStorage.candidateStorage){
+            var allCandidate=JSON.parse(localStorage.getItem("candidateStorage")) 
+            console.log(allCandidate)
+         }
+        const submitHere=()=>{
+        if(firstName.value=="" || lastName.value=="" || email.value=="" || password.value==""){
+          display.innerHTML=`Enter All Details`
+        }else{
+
+            var Candidate ={
+               firstname:firstName.value,
+               LastName:lastName.value,
+               Email:email.value,
+               Password:password.value,
+               matricNumber:matric
+   
+            }
+            allCandidate.push(Candidate)
+            console.log(allCandidate)
+            localStorage.setItem("candidateStorage",JSON.stringify(allCandidate))
+            window.location.href="signinPage.html"
+            firstName.value==""
+            lastName.value==""
+            email.value==""
+            password.value==""
+        }
+        }
+    </script>
+</body>
+</html>
